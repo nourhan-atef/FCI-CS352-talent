@@ -57,7 +57,7 @@ public class UserController {
 	@GET
 	@Path("/signout")
 	public Response signout() {
-		String serviceUrl = "http://localhost:8888/rest/SignOutService";
+		String serviceUrl = "http://fci-talent.appspot.com/rest/SignOutService";
 		String retJson = Connection.connect(serviceUrl, "","POST",
 				"application/x-www-form-urlencoded;charset=UTF-8");
 		return Response.ok(new Viewable("/jsp/entryPoint.jsp")).build();
@@ -118,7 +118,7 @@ public class UserController {
 	public String response(@FormParam("uname") String uname,
 			@FormParam("email") String email, @FormParam("password") String pass) {
 
-		String serviceUrl = "http://localhost:8888/rest/RegistrationService";
+		String serviceUrl = "http://fci-talent.appspot.com/rest/RegistrationService";
 		String urlParameters = "uname=" + uname + "&email=" + email
 				+ "&password=" + pass;
 		String retJson = Connection.connect(serviceUrl, urlParameters, "POST",
@@ -163,7 +163,7 @@ public class UserController {
 		String urlParameters = "uname=" + uname + "&password=" + pass;
 
 		String retJson = Connection.connect(
-				"http://localhost:8888/rest/LoginService", urlParameters,
+				"http://fci-talent.appspot.com/rest/LoginService", urlParameters,
 				"POST", "application/x-www-form-urlencoded;charset=UTF-8");
 
 		JSONParser parser = new JSONParser();
@@ -198,7 +198,7 @@ public class UserController {
 		String urlParameters = "uname=" + uname ;
 
 		String retJson = Connection.connect(
-				"http://localhost:8888/rest/sendrequestService", urlParameters,
+				"http://fci-talent.appspot.com/rest/sendrequestService", urlParameters,
 				"POST", "application/x-www-form-urlencoded;charset=UTF-8");
 
 		JSONParser parser = new JSONParser();
@@ -227,7 +227,7 @@ public class UserController {
 
 		String urlParameters = "uname=" + uname + "&fname=" + fname;
 		String retJson = Connection.connect(
-				"http://localhost:8888/rest/makefriendService",urlParameters,
+				"http://fci-talent.appspot.com/rest/makefriendService",urlParameters,
 				"POST", "application/x-www-form-urlencoded;charset=UTF-8");
 
 		JSONParser parser = new JSONParser();
