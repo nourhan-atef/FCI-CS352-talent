@@ -1,4 +1,8 @@
 package com.FCI.SWE.Controller;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 public  class ChatObserver implements Observer{
 
 	Subject sub;

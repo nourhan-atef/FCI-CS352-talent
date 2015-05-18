@@ -11,6 +11,7 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+<<<<<<< HEAD
 /**
  * <h1>Post  class</h1>
  * <p>
@@ -21,6 +22,9 @@ import com.google.appengine.api.datastore.Query;
  * @version 1.0
  * @since 2014-02-12
  */
+=======
+
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 public class Post {
 	private static String ownername;
 	private static String postcontent;
@@ -29,6 +33,7 @@ public class Post {
 	private static String feeling;
 	private static String postprivacy;
 	private static Page page;
+<<<<<<< HEAD
 	
 	/**
 	 * Constructor accepts post data
@@ -38,6 +43,8 @@ public class Post {
 	 * @param feeling
 	 *            feeling
 	 */
+=======
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
     private Post(String postcontent,String  feeling) {
 			this.postcontent = postcontent;
 			this.feeling=feeling;
@@ -83,6 +90,7 @@ public class Post {
 	public static  String getpostprivacy() {
 		return postprivacy;
 }
+<<<<<<< HEAD
 	/**
 	 * 
 	 * This static method will form PostEntity class using json format contains
@@ -92,6 +100,9 @@ public class Post {
 	 *            String in json format contains user data
 	 * @return Constructed post entity
 	 */
+=======
+	
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	public static PostEntity getPost(String ownername, String time) {
 		DatastoreService datastore = DatastoreServiceFactory
 				.getDatastoreService();

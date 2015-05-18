@@ -17,6 +17,7 @@ import org.json.simple.parser.ParseException;
 
 import com.FCI.SWE.Models.Page;
 import com.FCI.SWE.Models.User;
+<<<<<<< HEAD
 /**
  * This class contains REST services, also contains action function for web
  * application
@@ -35,24 +36,36 @@ public class PageController {
 	 * 
 	 * @return createpage page
 	 */
+=======
+@Path("/")
+@Produces("text/html")
+public class PageController {
+	
+	
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	@GET
 	@Path("/createpage")
 	public Response createpage() {
 		//System.out.print("noura");
 		return Response.ok(new Viewable("/jsp/createpage")).build();
 	}
+<<<<<<< HEAD
 	/**
 	 * Action function to render likePage page, this function will be executed
 	 * using url like this /rest/likePage
 	 * 
 	 * @return likePage page
 	 */
+=======
+	
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	@GET
 	@Path("/likePage")
 	public Response likepage() {
 		System.out.print("liker");
 		return Response.ok(new Viewable("/jsp/likepage")).build();
 	}
+<<<<<<< HEAD
 	/**
 	 * Action function to response to createpage request, This function will act as
 	 * a controller part and it will calls createpageServicee to create page
@@ -65,6 +78,10 @@ public class PageController {
 	 *            provided category
 	 * @return Status string
 	 */
+=======
+	
+	
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	@POST
 	@Path("/createpage")
 	@Produces("text/html")
@@ -103,6 +120,7 @@ public class PageController {
 		return null;
 
 	}
+<<<<<<< HEAD
 	/**
 	 * Action function to response to likePage request, This function will act as
 	 * a controller part and it will calls likepageService to increase
@@ -113,6 +131,9 @@ public class PageController {
 	 *            provided page name
 	 * @return Status string
 	 */
+=======
+ 
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	
 	@POST
 	@Path("/likePage")

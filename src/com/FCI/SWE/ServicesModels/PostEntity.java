@@ -2,12 +2,18 @@ package com.FCI.SWE.ServicesModels;
 
 import java.sql.Date;
 import java.util.List;
+<<<<<<< HEAD
 import java.util.Vector;
 
 import javax.ws.rs.FormParam;
 
 import org.json.simple.JSONArray;
 
+=======
+
+import javax.ws.rs.FormParam;
+
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 import com.FCI.SWE.Models.User;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
@@ -15,6 +21,7 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+<<<<<<< HEAD
 import com.google.appengine.labs.repackaged.org.json.JSONObject;
 /**
  * <h1>Post Entity class</h1>
@@ -26,6 +33,9 @@ import com.google.appengine.labs.repackaged.org.json.JSONObject;
  * @version 1.0
  * @since 2014-02-12
  */
+=======
+
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 public class PostEntity {
 	private  String postcontent;
 	private static String ownername;
@@ -42,6 +52,7 @@ public class PostEntity {
 	public void setID(long iD) {
 		ID = iD;
 	}
+<<<<<<< HEAD
 	/**
 	 * Constructor accepts PostEntity data
 	 * 
@@ -56,6 +67,9 @@ public class PostEntity {
 	 * @param pagename
 	 *             page name
 	 */
+=======
+
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	public PostEntity(String postcontent, String time, String ownername,String feeling,String  pagename,String postprivacy) {
 			this.postcontent = postcontent;
 			this.time = time;
@@ -111,11 +125,15 @@ public class PostEntity {
 			return postcontent;
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * This method will be used to save Post object in datastore
 	 * 
 	 * @return boolean if post is saved correctly or not
 	 */
+=======
+
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	public Boolean savePost(String postcontent, String pagename,String feeling,String postprivacy) {
 		DatastoreService datastore = DatastoreServiceFactory
 				.getDatastoreService();
@@ -124,6 +142,10 @@ public class PostEntity {
 		List<Entity> list = pq.asList(FetchOptions.Builder.withDefaults());
 
 		Entity post = new Entity("post", list.size() + 1);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 		post.setProperty("ownername",User.getCurrentActiveUser().getName());
 		post.setProperty("postcontent",postcontent);
 		post.setProperty("likes",0);
@@ -131,6 +153,11 @@ public class PostEntity {
 		post.setProperty("feeling",feeling);
 		post.setProperty("postprivacy",postprivacy);
 		post.setProperty("pagename",pagename);
+<<<<<<< HEAD
+=======
+		System.out.print("feeling"+feeling);
+		
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	//	post.setProperty("time",Date.getTime());
 		
 		datastore.put(post);
@@ -138,6 +165,7 @@ public class PostEntity {
 		return true;
 
 	}
+<<<<<<< HEAD
 	/**
 	 * This method will be used to save seen object in datastore
 	 * 
@@ -206,4 +234,10 @@ public class PostEntity {
 				+ ", ID=" + ID + "]";
 	}
 	
+=======
+
+	
+	
+
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 }

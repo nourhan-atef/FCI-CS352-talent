@@ -16,8 +16,13 @@ javax.ws.rs.core.Response ,
 javax.ws.rs.core.UriBuilder ,
 org.glassfish.jersey.client.ClientConfig"%>
 
+<<<<<<< HEAD
 <form action="/social/hashtagtrends1" method="post">
 <input type="submit" value="hashtagtrends">
+=======
+<form action="/social/hashtagtrends" method="post">
+
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 <p> Welcome b2a ya ${it.postcontent} </p>
  </form>
 </body>

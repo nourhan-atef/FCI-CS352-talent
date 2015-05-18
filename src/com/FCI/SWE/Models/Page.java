@@ -11,6 +11,7 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+<<<<<<< HEAD
 /**
  * <h1>Page  class</h1>
  * <p>
@@ -21,10 +22,14 @@ import com.google.appengine.api.datastore.Query;
  * @version 1.0
  * @since 2014-02-12
  */
+=======
+
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 public class Page {
 	private static String pagename;
 	private static String type;
 	private static String category;
+<<<<<<< HEAD
 	/**
 	 * Constructor accepts page data
 	 * 
@@ -35,6 +40,9 @@ public class Page {
 	 * @param category
 	 *           category
 	 */
+=======
+	
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	
 	public Page(String pagename, String type, String category) {
 		super();
@@ -62,6 +70,7 @@ public class Page {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+<<<<<<< HEAD
 	/**
 	 * 
 	 * This static method will form PageEntity class using json format contains
@@ -71,6 +80,9 @@ public class Page {
 	 *            String in json format contains page data
 	 * @return Constructed page entity
 	 */
+=======
+	
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	public static PageEntity getPage(String pagename) {
 		DatastoreService datastore = DatastoreServiceFactory
 				.getDatastoreService();

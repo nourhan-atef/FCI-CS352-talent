@@ -12,9 +12,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import org.glassfish.jersey.server.mvc.Viewable;
+<<<<<<< HEAD
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
+=======
+import org.json.simple.JSONObject;
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
@@ -28,6 +32,7 @@ import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+<<<<<<< HEAD
 /**
  * This class contains REST services, also contains action function for web
  * application
@@ -37,32 +42,43 @@ import com.google.appengine.api.datastore.Query;
  * @since 2014-02-12
  *
  */
+=======
+
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 @Path("/")
 @Produces("text/html")
 
 public class PostController {
+<<<<<<< HEAD
 	/**
 	 * Action function to render createpost page, this function will be executed
 	 * using url like this /rest/createpost
 	 * 
 	 * @return createpost page
 	 */
+=======
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	@GET
 	@Path("/createpost")
 	public Response createpost() {
 		return Response.ok(new Viewable("/jsp/createpost")).build();
 	}
+<<<<<<< HEAD
 	/**
 	 * Action function to render hashtagstatistic page, this function will be executed
 	 * using url like this /rest/hashtagstatistic
 	 * 
 	 * @return hashtag statistic page
 	 */
+=======
+	
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	@GET
 	@Path("/hashtagstatistic")
 	public Response hashtagstatistic() {
 		return Response.ok(new Viewable("/jsp/hashtagstatistic")).build();
 	}
+<<<<<<< HEAD
 	/**
 	 * Action function to render hashtagtrends page, this function will be executed
 	 * using url like this /rest/hashtagtrends
@@ -81,11 +97,21 @@ public class PostController {
 	 * 
 	 * @return share page
 	 */
+=======
+	
+	@GET
+	@Path("/hashtagtrends")
+	public Response hashtagtrends() {
+		return Response.ok(new Viewable("/jsp/hashtagtrends")).build();
+	}
+	
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	@GET
 	@Path("/share")
 	public Response share() {
 		return Response.ok(new Viewable("/jsp/share")).build();
 	}
+<<<<<<< HEAD
 	
 	/**
 	 * Action function to render showpost page, this function will be executed
@@ -106,21 +132,35 @@ public class PostController {
 	 * 
 	 * @return timeline page
 	 */
+=======
+	@GET
+	@Path("/showpost")
+	public Response showpost11() {
+		
+		return Response.ok(new Viewable("/jsp/showpost")).build();
+	}
+	
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	@GET
 	@Path("/timeline")
 	public Response timeline() {
 		return Response.ok(new Viewable("/jsp/timeline")).build();
 	}
+<<<<<<< HEAD
 	/**
 	 * Action function to response to timeline_data request, This function will act as
 	 * a controller part and it will calls timelineService to show
 	 * your posts only
 	 
 	 */
+=======
+	
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	
 	@GET
 	@Path("/timeline_data")
 	@Produces("text/html")
+<<<<<<< HEAD
 	public Response timeline1() {
 		
 		String retJson = Connection.connect(
@@ -165,6 +205,50 @@ public class PostController {
 	@Produces("text/html")
 	public Response hashtagtrends1() {
 		System.out.print("hashtrendscotroller");
+=======
+	public Response timeline1() {	
+		String retJson = Connection.connect(
+				"http://localhost:8888/rest/timelineService","",
+				"POST", "application/x-www-form-urlencoded;charset=UTF-8");
+		JSONParser parser = new JSONParser();
+		Object obj;
+		try {	
+			Map<String, String> map = new HashMap<String, String>();
+			return Response.ok(new Viewable("/jsp/timeline",map)).build();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	@GET
+	@Path("/showpost_data1")
+	@Produces("text/html")
+	public Response showpost1() {
+		System.out.print("controller");
+		String retJson = Connection.connect(
+				"http://localhost:8888/rest/showpostService","",
+				"POST", "application/x-www-form-urlencoded;charset=UTF-8");
+		JSONParser parser = new JSONParser();
+		Object obj;
+		try {	
+			Map<String, String> map = new HashMap<String, String>();
+			return Response.ok(new Viewable("/jsp/showpost",map)).build();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	
+	@POST
+	@Path("/hashtagtrends")
+	@Produces("text/html")
+	public Response hashtagtrends1() {	
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 		String retJson = Connection.connect(
 				"http://localhost:8888/rest/hashtagtrendsService","",
 				"POST", "application/x-www-form-urlencoded;charset=UTF-8");
@@ -181,10 +265,13 @@ public class PostController {
 		return null;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Action function to response to hashtagtrends1 request, This function will act as
 	 * a controller part and it will calls hashtagtrends1 to return the most 10 hash tage 
 	 */
+=======
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	@POST
 	@Path("/hashtagstatistic")
 	@Produces("text/html")
@@ -239,6 +326,7 @@ public class PostController {
 	}*/
 
 
+<<<<<<< HEAD
 	/**
 	 * Action function to response to createpost request, This function will act as
 	 * a controller part and it will calls createpostService to create
@@ -254,6 +342,9 @@ public class PostController {
 	 *            provided page name
 	 * @return Status string
 	 */
+=======
+	
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	@POST
 	@Path("/createpost")
 	@Produces("text/html")
@@ -289,6 +380,7 @@ public class PostController {
 		return null;
 
 	}
+<<<<<<< HEAD
 	/**
 	 * Action function to response to share request, This function will act as
 	 * a controller part and it will calls shareService to create
@@ -300,6 +392,9 @@ public class PostController {
 	 *            provided time
 	 * @return Status string
 	 */
+=======
+	
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	
 	@POST
 	@Path("/share")

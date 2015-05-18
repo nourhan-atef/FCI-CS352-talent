@@ -19,6 +19,7 @@ import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.labs.repackaged.org.json.JSONException;
 
+<<<<<<< HEAD
 /**
  * This class contains REST services, also contains action function for web
  * application
@@ -46,6 +47,16 @@ public class PageServices {
 	@POST
 	@Path("/createpageServicee")
 	public static String createpostService(@FormParam("pagename") String pagename, @FormParam("type") String type,@FormParam("category")String category
+=======
+
+@Path("/")
+@Produces(MediaType.TEXT_PLAIN)
+public class PageServices {
+	
+	@POST
+	@Path("/createpageServicee")
+	public String createpostService(@FormParam("pagename") String pagename, @FormParam("type") String type,@FormParam("category")String category
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 			) throws JSONException {
 		//System.out.print("nourffhhjyhjtja");
 		PageEntity page =new PageEntity(pagename, type, category);
@@ -54,6 +65,7 @@ public class PageServices {
 		object.put("Status", "OK");
 		return object.toString();
 	}
+<<<<<<< HEAD
 	/**
 	 * Action function to response to likePage request, This function will act as
 	 * a controller part and it will calls likepageService to increase
@@ -66,6 +78,12 @@ public class PageServices {
 		@POST
 	@Path("/likepageService")
 	public static String likepageService(@FormParam("pagename")String pagename) {
+=======
+	
+		@POST
+	@Path("/likepageService")
+	public String likepageService(@FormParam("pagename")String pagename) {
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 		JSONObject object = new JSONObject();
 		DatastoreService datastore = DatastoreServiceFactory
 				.getDatastoreService();
@@ -88,8 +106,13 @@ public class PageServices {
 			}
 		}
 
+<<<<<<< HEAD
 		//return null;
 		return object.toString();
+=======
+		return null;
+		
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 		
 	
 	}

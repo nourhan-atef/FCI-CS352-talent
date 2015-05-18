@@ -16,10 +16,17 @@ javax.ws.rs.core.Response ,
 javax.ws.rs.core.UriBuilder ,
 org.glassfish.jersey.client.ClientConfig"%>
 
+<<<<<<< HEAD
 <form action="/social/showpost" method="post">
 <input type="submit" value="showpost">
 <p> Welcome b2a ya ${it.postcontent} </p>
  <a href="/social/share">share</a>
+=======
+<form action="/social/showpost_data1" method="post">
+
+<p> Welcome b2a ya ${it.postcontent} </p>
+ <a href="/social/share/">share</a>
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
  </form>
 </body>
 </html>

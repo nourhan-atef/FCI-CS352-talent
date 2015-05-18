@@ -9,6 +9,7 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.FetchOptions;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
+<<<<<<< HEAD
 /**
  * <h1>User Entity class</h1>
  * <p>
@@ -19,11 +20,15 @@ import com.google.appengine.api.datastore.Query;
  * @version 1.0
  * @since 2014-02-12
  */
+=======
+
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 public class PageEntity {
 		private String pagename;
 		private String type;
 		private String category;
 		
+<<<<<<< HEAD
 		/**
 		 * Constructor accepts page data
 		 * 
@@ -34,6 +39,9 @@ public class PageEntity {
 		 * @param category
 		 *           category
 		 */
+=======
+		
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 		public PageEntity(String pagename, String type, String category) {
 			super();
 			this.pagename = pagename;
@@ -84,11 +92,15 @@ public class PageEntity {
 		
 
 		
+<<<<<<< HEAD
 		/**
 		 * This method will be used to save page object in datastore
 		 * 
 		 * @return boolean if page is saved correctly or not
 		 */
+=======
+		
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 		public static Boolean savePage(String pagename, String type, String category) {
 			DatastoreService datastore = DatastoreServiceFactory
 					.getDatastoreService();
@@ -109,11 +121,15 @@ public class PageEntity {
 			return true;
 
 		}
+<<<<<<< HEAD
 		/**
 		 * This method will be used to save pageliker object in datastore
 		 * 
 		 * @return boolean if pageliker is saved correctly or not
 		 */
+=======
+		
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 		public static Boolean savePageLiker(String pagename) {
 			DatastoreService datastore = DatastoreServiceFactory
 					.getDatastoreService();

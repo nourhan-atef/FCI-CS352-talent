@@ -109,6 +109,24 @@ public class UserServices {
 	
 	
 	@POST
+	@Path("/excutemessageNotificationService")
+	public String excuteService(String n) {
+		
+	    Command comand=new MessageNotification();
+	    System.out.print("service");
+	    return comand.excute(n);
+		
+	}
+	@POST
+	@Path("/excuteacceptNotificationService")
+	public String excuteService2(String n) {
+	    Command comand1=new FriendAcceptanceNotification();
+	 return  comand1.excute(n);
+		 
+	}
+	
+	
+	@POST
 	@Path("/SignOutService")
 	public static String SignOutService() {
 		
@@ -216,12 +234,20 @@ public class UserServices {
 	
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * Action function to render sendmessage page, this function will be executed
 	 * using url like this /rest/sendmessage
 	 * 
 	 * @return sendmessage page
 	 */
+=======
+	
+	
+	
+	
+	
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 	@POST
 	@Path("/sendmessageService")
 	public String sendrequestService(@FormParam("fname") String fname,@FormParam("message") String message) {
@@ -244,6 +270,7 @@ public class UserServices {
 	
 	
 	
+<<<<<<< HEAD
 	/**
 	 * Action function to response to chatgroup request, This function will act as
 	 * a controller part and it will calls chatgroupService to make
@@ -268,6 +295,12 @@ public class UserServices {
 	@POST
 	@Path("/chatgroupService")
 	public static String chatgroupService(@FormParam("fname1") String fname1,
+=======
+	
+	@POST
+	@Path("/chatgroupService")
+	public String chatgroupService(@FormParam("fname1") String fname1,
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 			@FormParam("fname2") String fname2,@FormParam("fname3") String fname3,
 			@FormParam("fname4") String fname4,@FormParam("fname5") String fname5,
 			@FormParam("conversationname") String conversationname) {
@@ -294,13 +327,18 @@ public class UserServices {
 			
 		}
 
+<<<<<<< HEAD
 		//return "successful chat group";
 		return object.toString();
+=======
+		return "successful chat group";
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 
 	}
 	
 	
 	
+<<<<<<< HEAD
 	/**
 	 * Action function to response to writeMessage request, This function will act as
 	 * a controller part and it will calls writeMessageService to make
@@ -317,6 +355,12 @@ public class UserServices {
 	@POST
 	@Path("/writeMessageService")
 	public static String writeMessageService(
+=======
+	
+	@POST
+	@Path("/writeMessageService")
+	public String writeMessageService(
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 			@FormParam("message") String message,
 			@FormParam("conversationname") String conversationname) {
 		JSONObject object = new JSONObject();
@@ -332,8 +376,12 @@ public class UserServices {
 			user2.savewriteMessage(message,conversationname);
 			
 		}
+<<<<<<< HEAD
 	//	return "successful chat group";
 		return object.toString();
+=======
+		return "successful chat group";
+>>>>>>> 531298b31204a14398cc27ecdf1a91c6e3fb4e55
 
 	}
 
