@@ -3,14 +3,30 @@ package com.FCI.SWE.Models;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
-
+/**
+ * <h1>User  class</h1>
+ * <p>
+ * This class will act as a model for user, it will holds user data
+ * </p>
+ *
+ * @author nourhan atef
+ * @version 1.0
+ * @since 2014-02-12
+ */
 
 public class User {
 	private long id;
 	private String name;
 	private String email;
 	private String password;
+	private String message;
+	private String conversationname;
 	private static User currentActiveUser;
+	private String name1;
+	private String name2;
+	private String name3;
+	private String name4;
+	private String name5;
 
 	/**
 	 * Constructor accepts user data
@@ -22,7 +38,7 @@ public class User {
 	 * @param password
 	 *            user provided password
 	 */
-	private User(String name, String email, String password) {
+	public User(String name, String email, String password) {
 		this.name = name;
 		this.email = email;
 		this.password = password;
@@ -32,6 +48,12 @@ public class User {
 	private void setId(long id){
 		this.id = id;
 	}
+	private void setconversationname(String conversationname){
+		this.conversationname = conversationname;
+	}
+	private void setmessage(String message){
+		this.message = message;
+	}
 	
 	public long getId(){
 		return id;
@@ -39,6 +61,28 @@ public class User {
 
 	public String getName() {
 		return name;
+	}
+	public String getName1() {
+		return name1;
+	}
+	public String getName2() {
+		return name2;
+	}
+	public String getName3() {
+		return name3;
+	}
+	public String getName4() {
+		return name4;
+	}
+	public String getName5() {
+		return name5;
+	}
+	
+	public String getconversationname() {
+		return conversationname;
+	}
+	public String getmessage() {
+		return message;
 	}
 
 	public String getEmail() {

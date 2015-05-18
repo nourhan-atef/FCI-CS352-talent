@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Failed suite [Default suite]]">
+  <test name="Default test(failed)(failed)">
+    <classes>
+      <class name="com.FCI.SWE.Services.UserServicesTest">
+        <methods>
+          <include name="sendrequestService1"/>
+          <include name="loginService" invocation-numbers="0 1 2 3"/>
+          <include name="makefriendService" invocation-numbers="0 1 2 3"/>
+          <include name="chatgroupService1"/>
+          <include name="sendrequestService" invocation-numbers="0 1"/>
+          <include name="writeMessageService" invocation-numbers="0 1"/>
+          <include name="loginService1"/>
+          <include name="registrationService" invocation-numbers="0 1 2 3"/>
+          <include name="SignOutService1"/>
+          <include name="makefriendService1"/>
+          <include name="chatgroupService"/>
+        </methods>
+      </class> <!-- com.FCI.SWE.Services.UserServicesTest -->
+    </classes>
+  </test> <!-- Default test(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [Default suite]] -->

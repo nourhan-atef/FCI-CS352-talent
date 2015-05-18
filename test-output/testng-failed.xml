@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.FCI.SWE.Controller.UserControllerTest">
+        <methods>
+          <include name="signout"/>
+          <include name="sendmessage"/>
+          <include name="index"/>
+          <include name="signUp"/>
+          <include name="makefriend"/>
+          <include name="excuteService2"/>
+          <include name="chatgroupStringString"/>
+          <include name="excuteService"/>
+          <include name="sendmessageStringString"/>
+          <include name="loginService" invocation-numbers="0 1 2 3"/>
+          <include name="makefriend1"/>
+          <include name="sendrequest"/>
+          <include name="sendrequestString"/>
+          <include name="home"/>
+          <include name="chatgroupStringStringStringStringStringString"/>
+          <include name="notification"/>
+          <include name="chatgroup"/>
+          <include name="writeMessage"/>
+          <include name="acceptFriendNotification"/>
+        </methods>
+      </class> <!-- com.FCI.SWE.Controller.UserControllerTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

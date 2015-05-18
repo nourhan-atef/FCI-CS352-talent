@@ -25,6 +25,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import com.FCI.SWE.Controller.Command;
 import com.FCI.SWE.Models.User;
 import com.FCI.SWE.ServicesModels.UserEntity;
 import com.google.appengine.api.datastore.DatastoreService;
@@ -38,7 +39,7 @@ import com.google.appengine.api.datastore.Query;
  * This class contains REST services, also contains action function for web
  * application
  * 
- * @author Mohamed Samir
+ * @author nada essam 
  * @version 1.0
  * @since 2014-02-12
  *
@@ -54,7 +55,9 @@ public class UserServices {
 		return Response.ok(new Viewable("/jsp/entryPoint")).build();
 	}*/
 
-
+	public Command c ;
+	
+	//c.excute();
 		/**
 	 * Registration Rest service, this service will be called to make
 	 * registration. This function will store user data in data store
@@ -67,27 +70,56 @@ public class UserServices {
 	 *            provided password
 	 * @return Status json
 	 */
+	//refator
 	@POST
 	@Path("/RegistrationService")
-	public String registrationService(@FormParam("uname") String uname,
+	public static String registrationService(@FormParam("uname") String uname,
 			@FormParam("email") String email, @FormParam("password") String pass) {
 		UserEntity user = new UserEntity(uname, email, pass);
-		user.saveUser();
-		JSONObject object = new JSONObject();
-		object.put("Status", "OK");
-		return object.toString();
+		if(user.saveUser())
+		{
+			JSONObject object = new JSONObject();
+		    object.put("Status", "OK");
+		    return object.toString();}
+		    else{
+			    JSONObject object = new JSONObject();
+			    object.put("Status", "failed");
+		         return object.toString();
+		    }
+		
+	}
+	
+	
+	@POST
+	@Path("/excutemessageNotificationService")
+	public String excuteService(String n) {
+		
+	    Command comand=new MessageNotification();
+	    System.out.print("service");
+	    return comand.excute(n);
+		
+	}
+	@POST
+	@Path("/excuteacceptNotificationService")
+	public String excuteService2(String n) {
+	    Command comand1=new FriendAcceptanceNotification();
+	 return  comand1.excute(n);
+		 
 	}
 	
 	
 	@POST
 	@Path("/SignOutService")
-	public String SignOutService() {
+	public static String SignOutService() {
 		
 		User.setCurrentActiveUsernull();
 		JSONObject object = new JSONObject();
 		object.put("Status", "OK");
 		return object.toString();
 	}
+	
+	
+	
 	
 	
 
@@ -100,7 +132,7 @@ public class UserServices {
 	 */
 	@POST
 	@Path("/LoginService")
-	public String loginService(@FormParam("uname") String uname,
+	public static String loginService(@FormParam("uname") String uname,
 			@FormParam("password") String pass) {
 		JSONObject object = new JSONObject();
 		UserEntity user = UserEntity.getUser(uname, pass);
@@ -122,12 +154,14 @@ public class UserServices {
 	
 	
 	/**
-    wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
- */
-	
+	 * Action function to render sendrequest page, this function will be executed
+	 * using url like this /rest/sendrequest
+	 * 
+	 * @return sendrequest page
+	 */
 	@POST
 	@Path("/sendrequestService")
-	public String sendrequestService(@FormParam("uname") String uname) {
+	public static String sendrequestService(@FormParam("uname") String uname) {
 		JSONObject object = new JSONObject();
 		UserEntity user = UserEntity.getFriend(uname);
 		if (user == null) {
@@ -139,15 +173,21 @@ public class UserServices {
 			user.savefriendrequest(uname);
 			
 			
+			
 		}
-		return"successful sending friend request";
-
+		//return"successful sending friend request";
+		return object.toString();   //after testing
 	}
 	
-	
+	/**
+	 * Action function to render makefriend page, this function will be executed
+	 * using url like this /rest/makefriend
+	 * 
+	 * @return makefriend page
+	 */
 	@POST
 	@Path("/makefriendService")
-	public String makefriendService(@FormParam("uname")String uname, @FormParam("fname")String fname) {
+	public static String makefriendService(@FormParam("uname")String uname, @FormParam("fname")String fname) {
 		JSONObject object = new JSONObject();
 		DatastoreService datastore = DatastoreServiceFactory
 				.getDatastoreService();
@@ -174,5 +214,127 @@ public class UserServices {
 		
 		
 	
+	}
+	
+	/**
+	 * Action function to render sendmessage page, this function will be executed
+	 * using url like this /rest/sendmessage
+	 * 
+	 * @return sendmessage page
+	 */
+	@POST
+	@Path("/sendmessageService")
+	public String sendrequestService(@FormParam("fname") String fname,@FormParam("message") String message) {
+		JSONObject object = new JSONObject();
+		UserEntity user1 = UserEntity.getFriend(fname);
+		if (user1 == null) {
+			object.put("Status", "Failed");
+
+		} else {
+			object.put("Status", "OK");
+			object.put("fname", user1.getName());
+			object.put("message", user1.getmessage());
+			user1.savemessage(fname,message);
+			
+		}
+
+		return "successful sending friend message";
+
 	}	
+	
+	
+	
+	/**
+	 * Action function to response to chatgroup request, This function will act as
+	 * a controller part and it will calls chatgroupService to make
+	 * message to your friends
+	 * 
+	 * @param fname1
+	 *            provided friend name
+	  * @param fname2
+	 *            provided friend name
+	 * @param fname3
+	 *            provided friend name
+	 * @param fname4
+	 *            provided friend name
+	 * @param fname5
+	 *            provided friend name
+	 * @param conversationname
+	 *            provided conversationname
+	 
+	 * @return Status string
+	 */
+
+	@POST
+	@Path("/chatgroupService")
+	public static String chatgroupService(@FormParam("fname1") String fname1,
+			@FormParam("fname2") String fname2,@FormParam("fname3") String fname3,
+			@FormParam("fname4") String fname4,@FormParam("fname5") String fname5,
+			@FormParam("conversationname") String conversationname) {
+		JSONObject object = new JSONObject();
+	UserEntity user2 = UserEntity.getFriend(fname1);
+	 user2 = UserEntity.getFriend(fname2);
+     user2 = UserEntity.getFriend(fname3);
+     user2 = UserEntity.getFriend(fname4);
+     user2 = UserEntity.getFriend(fname5);
+     user2 = UserEntity.getFriend(conversationname);
+		if (user2 == null) {
+			object.put("Status", "Failed");
+
+		} else {
+			object.put("Status", "OK");
+			object.put("fname1", user2.getName());
+			object.put("fname2", user2.getName());
+			object.put("fname3", user2.getName());
+			object.put("fname4", user2.getName());
+			object.put("fname5", user2.getName());
+			object.put("conversationname", user2.getconversationname());
+		    System.out.println("noura");
+			user2.savechatgroup(fname1,fname2,fname3,fname4,fname5,conversationname);
+			
+		}
+
+		//return "successful chat group";
+		return object.toString();
+
+	}
+	
+	
+	
+	/**
+	 * Action function to response to writeMessage request, This function will act as
+	 * a controller part and it will calls writeMessageService to make
+	 * message
+	 * 
+	 * @param message
+	 *            provided message
+	  
+	 * @param conversationname
+	 *            provided conversationname
+	 
+	 * @return Status string
+	 */
+	@POST
+	@Path("/writeMessageService")
+	public static String writeMessageService(
+			@FormParam("message") String message,
+			@FormParam("conversationname") String conversationname) {
+		JSONObject object = new JSONObject();
+	UserEntity user2 = UserEntity.getFriend(message);
+     user2 = UserEntity.getFriend(conversationname);
+		if (user2 == null) {
+			object.put("Status", "Failed");
+
+		} else {
+			object.put("Status", "OK");
+			object.put("message", user2.getmessage());
+			object.put("conversationname", user2.getconversationname());
+			user2.savewriteMessage(message,conversationname);
+			
+		}
+	//	return "successful chat group";
+		return object.toString();
+
+	}
+
 }
